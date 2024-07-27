@@ -3,43 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Form To Email</title>
+    <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <form onsubmit="sendEmail(); reset(); return false;">
-            <h3>GET IN TOUCH</h3>
-            <input type="text" id="name" placeholder="Your Name" required>
-            <input type="email" id="email" placeholder="Email id" required>
-            <input type="text" id="phone" placeholder="Phone no" required>
-            <textarea name="" id="message" rows="4" placeholder="How can we help you?"></textarea>
-            <button type="submit">Send</button>
-
+    <div class="contact-container">
+        <form action="https://api.web3forms.com/submit" method="POST" class="contact-left">
+            <div class="contact-left-title">
+                <h2>Get In Touch</h2>
+                <hr>
+            </div>
+            <input type="hidden" name="access_key" value="6b4e96de-90e8-48af-8be9-07201eca43c0">
+               <input type="text" name="name" placeholder="Your Name" class="contact-inputs" required>
+               <input type="email" name="email" placeholder="Your Email" class="contact-inputs" required>
+               <textarea name="message" placeholder="Your Message" class="contact-inputs" required></textarea>
+               <button type="submit">Send <img src="img/arrow_icon.png" alt=""></button>
 
         </form>
+        <div class="contact-right">
+            <img src="img/email.png">
 
+        </div>
     </div>
-    <script src="https://smtpjs.com/v3/smtp.js"></script>
-    <script>
-        function sendEmail(){
-            Email.send({
-                Host : "smtp.gmail.com",
-                Username : "sakshimandvakar2001@gmail.com",
-                Password : "46871AA0F8021E9400D38285CACD938E9A2C4",
-                To : 'sakshimandvakar6094@gmail.com',
-                From : document.getElementById("email").value,
-                Subject : "New Contact Form Enquiry",
-                Body : "And this is the body"
-                + "<br> Email: " + document.getElementById("name").value
-                + "<br> Phone no: " + document.getElementById("phone").value
-                + "<br> Message: " + document.getElementById("message").value
-
-
-            }).then(
-            message => alert("message sent Successfylly")
-            );
-        }
-    </script>
+    
 </body>
 </html>
